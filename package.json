@@ -30,5 +30,10 @@
     "webpack": "^5.26.3",
     "webpack-cli": "^4.5.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "html-webpack-plugin": "^5.3.1",
+    "package.json": "^2.0.1",
+    "url-loader": "^4.1.1"
   }
 }

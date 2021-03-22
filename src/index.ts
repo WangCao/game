@@ -1,12 +1,18 @@
+import Game from "./Game";
 import "./styles/main.scss"
 
-const a = {
-  a:1
+async function run() {
+  const canvasEl = document.getElementById("canvas") as HTMLCanvasElement | undefined
+  if (canvasEl == null) {
+    console.log("没有发现canvas标签")
+    return;
+  }
+
+  const game = new Game(canvasEl);
+  game.run();
 }
 
-const b = {
-  ...a,
-  b:2
-}
 
-console.log(b);
+
+
+run()
