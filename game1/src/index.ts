@@ -12,7 +12,4 @@ async function run() {
   game.run();
 }
 
-
-
-
 run()

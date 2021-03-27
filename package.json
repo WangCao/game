@@ -5,7 +5,9 @@
   "main": "index.js",
   "private": "true",
   "scripts": {
-    "start": "webpack serve",
+    "start:game1": "cross-env CURRENT_GAME=game1  webpack serve",
+    "start:game2": "cross-env CURRENT_GAME=game2 LANGUAGE=js  webpack serve",
+    "start:game3": "cross-env CURRENT_GAME=game3  webpack serve",
     "watch": "webpack --watch",
     "build": "cross-env NODE_ENV=production webpack",
     "build-dev": "webpack"

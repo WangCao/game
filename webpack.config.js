@@ -6,17 +6,28 @@ const path = require("path");
 let mode = "development";
 let outdir = "public";
 
+let currentGame = null;
+let language = "ts"
+
 if (process.env.NODE_ENV === "production") {
 	mode = "production";
 	outdir = "dist";
 }
 
+if (process.env.CURRENT_GAME) {
+	currentGame = process.env.CURRENT_GAME;
+}
+
+if (process.env.LANGUAGE) {
+	language = process.env.LANGUAGE;
+}
+
 module.exports = {
 	mode: mode,
-	entry: "./src/index.ts",
+	entry: `./${currentGame}/src/index.${language}`,
 	output: {
 		filename: "main.js",
-		path: path.resolve(__dirname, outdir),
+		path: path.resolve(__dirname, outdir,`/${currentGame}`),
 	},
 	devtool: "eval-source-map",
 	resolve: {
@@ -61,14 +72,14 @@ module.exports = {
 		],
 	},
 	devServer: {
-		contentBase: "./public",
+		contentBase: `./${currentGame}/public`,
 	},
 	plugins: [
 		new MiniCssExtractPlugin(),
 		new HtmlWebpackPlugin({
 			title: "game",
 			filename: "index.html",
-			template: "public/index.html",
+			template: `${currentGame}/public/index.html`,
 		}),
 	],
 };
